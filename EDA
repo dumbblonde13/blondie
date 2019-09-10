@@ -1,0 +1,19 @@
+#Load Pandas Library
+import pandas as pd
+
+#Loads in games.csv file from directory
+games = pd.read_csv("games.csv")
+pd.set_option('display.max_columns', 500)
+
+games['User_Score'] = games['User_Score'].replace('tbd', '')
+
+print(games.User_Score)
+
+#games['User_Score'] = games.User_Score.astype(float)
+
+
+# list of dtypes to include 
+
+include =['object', 'float', 'int'] 
+print(games.describe(include = include))
+print(games.info())
